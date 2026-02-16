@@ -1,6 +1,8 @@
 export default function HeroBanner() {
   return (
-    <section className="relative min-h-[600px] md:min-h-[70vh] bg-black overflow-hidden pt-16">
+    // Reduced hero min-height so following sections (e.g. "Excellence Garantie") are visible
+    // without excessive scrolling on common desktop viewports.
+    <section className="relative min-h-[420px] md:min-h-[50vh] bg-black overflow-hidden pt-12">
       {/* Background Image Layer */}
       <div className="absolute inset-x-0 bottom-0 top-16">
         <img
@@ -13,7 +15,7 @@ export default function HeroBanner() {
       </div>
 
       {/* Content Layer */}
-      <div className="relative min-h-[calc(600px-4rem)] md:min-h-[calc(70vh-4rem)] flex items-center">
+      <div className="relative min-h-[calc(420px-3rem)] md:min-h-[calc(50vh-3rem)] flex items-center">
         <div className="container py-10 md:py-14">
           <div className="max-w-3xl">
             {/* Main Headline - No subtitle */}

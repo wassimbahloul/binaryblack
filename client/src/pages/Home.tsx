@@ -1,9 +1,23 @@
-import { ArrowRight, Zap, Award, Repeat, Factory, Building2, GraduationCap, BookOpen, Brain, BarChart3, Shield, FileCheck, Smartphone, Cloud } from "lucide-react";
+import { ArrowRight, Zap, Award, Repeat, Factory, Building2, GraduationCap, BookOpen, Brain, BarChart3, Shield, FileCheck, Smartphone, Cloud, ChevronDown } from "lucide-react";
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroBanner from "@/components/HeroBanner";
 
 export default function Home() {
+  const [openCategories, setOpenCategories] = useState<Set<number>>(new Set());
+
+  const toggleCategory = (index: number) => {
+    setOpenCategories(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(index)) {
+        newSet.delete(index);
+      } else {
+        newSet.add(index);
+      }
+      return newSet;
+    });
+  };
   const techs = [
     "Python", "Java", "JavaScript", "C#", "PHP", "Angular",
     "React", ".NET", "Node.js", "Express.js", "Spring Boot", "Flask",
@@ -61,9 +75,9 @@ export default function Home() {
       
 
       {/* Solutions Section */}
-      <section id="services" className="py-20 bg-white">
+      <section id="services" className="py-12 bg-white">
         <div className="container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="text-4xl lg:text-5xl font-bold text-black mb-4">Nos Services</h2>
             <p className="text-gray-600 mt-4 max-w-2xl mx-auto">Solutions d'IA sur mesure</p>
           </div>
@@ -73,16 +87,26 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
               {/* CATEGORY 1: Computer Vision & IA */}
               <div className="services-column">
-                <div className="category-header">
-                  <div className="category-icon">
-                    <Brain size={28} strokeWidth={1.5} />
+                <button 
+                  onClick={() => toggleCategory(0)}
+                  className="category-header category-header-clickable"
+                  aria-expanded={openCategories.has(0)}
+                >
+                  <div className="category-header-content">
+                    <div className="category-icon">
+                      <Brain size={28} strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <h3 className="category-title">Computer Vision & IA</h3>
+                      <p className="category-subtitle">Solutions intelligentes</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="category-title">Computer Vision & IA</h3>
-                    <p className="category-subtitle">Solutions intelligentes</p>
+                  <div className={`category-chevron ${openCategories.has(0) ? 'category-chevron-open' : ''}`}>
+                    <ChevronDown size={20} strokeWidth={2} />
                   </div>
-                </div>
-                <div className="services-stack">
+                </button>
+                <div className={`services-stack ${openCategories.has(0) ? 'services-stack-open' : 'services-stack-closed'}`}>
+                  <div className="flex flex-col gap-3 mt-2">
                   {[
                       { icon: BarChart3, title: "Présence & Absence", desc: "Suivi de présence automatisé", href: "/service/presence-absence" },
                       { icon: Shield, title: "Performance & Sécurité", desc: "Analyse comportementale", href: "/service/performance-security" },
@@ -92,11 +116,6 @@ export default function Home() {
                     const Icon = srv.icon;
                     return (
                       <a key={i} href={srv.href} className="service-item">
-                        <span className="card-border">
-                          <svg className="card-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                            <rect className="card-border-rect" x="1" y="1" width="98" height="98" />
-                          </svg>
-                        </span>
                         <div className="service-item-icon">
                           <Icon size={20} strokeWidth={1.5} />
                         </div>
@@ -110,21 +129,32 @@ export default function Home() {
                       </a>
                     );
                   })}
+                  </div>
                 </div>
               </div>
 
               {/* CATEGORY 2: Web & Mobile */}
               <div className="services-column">
-                <div className="category-header">
-                  <div className="category-icon">
-                    <Smartphone size={28} strokeWidth={1.5} />
+                <button 
+                  onClick={() => toggleCategory(1)}
+                  className="category-header category-header-clickable"
+                  aria-expanded={openCategories.has(1)}
+                >
+                  <div className="category-header-content">
+                    <div className="category-icon">
+                      <Smartphone size={28} strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <h3 className="category-title">Développement Web & Mobile</h3>
+                      <p className="category-subtitle">Applications modernes</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="category-title">Développement Web & Mobile</h3>
-                    <p className="category-subtitle">Applications modernes</p>
+                  <div className={`category-chevron ${openCategories.has(1) ? 'category-chevron-open' : ''}`}>
+                    <ChevronDown size={20} strokeWidth={2} />
                   </div>
-                </div>
-                <div className="services-stack">
+                </button>
+                <div className={`services-stack ${openCategories.has(1) ? 'services-stack-open' : 'services-stack-closed'}`}>
+                  <div className="flex flex-col gap-3 mt-2">
                   {[
                     { icon: Smartphone, title: "Plateformes Web", desc: "Applications réactives", href: "/service/web-mobile" },
                     { icon: Smartphone, title: "Mobileapplications", desc: "iOS & Android natifs", href: "/service/web-mobile" },
@@ -134,11 +164,6 @@ export default function Home() {
                     const Icon = srv.icon;
                     return (
                       <a key={i} href={srv.href} className="service-item">
-                        <span className="card-border">
-                          <svg className="card-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                            <rect className="card-border-rect" x="1" y="1" width="98" height="98" />
-                          </svg>
-                        </span>
                         <div className="service-item-icon">
                           <Icon size={20} strokeWidth={1.5} />
                         </div>
@@ -152,21 +177,32 @@ export default function Home() {
                       </a>
                     );
                   })}
+                  </div>
                 </div>
               </div>
 
               {/* CATEGORY 3: Cloud Services */}
               <div className="services-column">
-                <div className="category-header">
-                  <div className="category-icon">
-                    <Cloud size={28} strokeWidth={1.5} />
+                <button 
+                  onClick={() => toggleCategory(2)}
+                  className="category-header category-header-clickable"
+                  aria-expanded={openCategories.has(2)}
+                >
+                  <div className="category-header-content">
+                    <div className="category-icon">
+                      <Cloud size={28} strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <h3 className="category-title">Services Cloud</h3>
+                      <p className="category-subtitle">Infrastructure scalable</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="category-title">Services Cloud</h3>
-                    <p className="category-subtitle">Infrastructure scalable</p>
+                  <div className={`category-chevron ${openCategories.has(2) ? 'category-chevron-open' : ''}`}>
+                    <ChevronDown size={20} strokeWidth={2} />
                   </div>
-                </div>
-                <div className="services-stack">
+                </button>
+                <div className={`services-stack ${openCategories.has(2) ? 'services-stack-open' : 'services-stack-closed'}`}>
+                  <div className="flex flex-col gap-3 mt-2">
                   {[
                     { icon: Cloud, title: "IaaS & Infrastructure", desc: "Infrastructure élastique", href: "/service/cloud" },
                     { icon: Cloud, title: "Platform as a Service", desc: "PaaS managé", href: "/service/cloud" },
@@ -176,11 +212,6 @@ export default function Home() {
                     const Icon = srv.icon;
                     return (
                       <a key={i} href={srv.href} className="service-item service-item-premium">
-                        <span className="card-border">
-                          <svg className="card-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                            <rect className="card-border-rect" x="1" y="1" width="98" height="98" />
-                          </svg>
-                        </span>
                         <div className="service-item-icon">
                           <Icon size={20} strokeWidth={1.5} />
                         </div>
@@ -194,6 +225,7 @@ export default function Home() {
                       </a>
                     );
                   })}
+                  </div>
                 </div>
               </div>
             </div>

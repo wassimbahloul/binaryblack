@@ -16,9 +16,9 @@ export default function Footer() {
             </div>
             <p className="text-gray-400 text-sm max-w-sm">Des solutions d'IA conçues pour la performance et la sécurité — design moderne et intégration robuste.</p>
             <div className="flex gap-3 mt-2">
-              <a href="#" className="text-gray-400 hover:text-white"><Linkedin size={18} /></a>
-              <a href="#" className="text-gray-400 hover:text-white"><Twitter size={18} /></a>
-              <a href="#" className="text-gray-400 hover:text-white"><Github size={18} /></a>
+              <a href="https://linkedin.com/company/binaryblack" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white"><Linkedin size={18} /></a>
+              <a href="https://twitter.com/binaryblack" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white"><Twitter size={18} /></a>
+              <a href="https://github.com/binaryblack" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white"><Github size={18} /></a>
             </div>
           </div>
 
@@ -35,9 +35,9 @@ export default function Footer() {
             <div>
               <h4 className="text-xs text-gray-400 uppercase tracking-wider mb-3">Services</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="text-gray-300 hover:text-white">Présence & Absence</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white">Performance & Sécurité</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white">Web & Mobile</a></li>
+                <li><a href="#services" className="text-gray-300 hover:text-white">Computer Vision & IA</a></li>
+                <li><a href="#services" className="text-gray-300 hover:text-white">Développement Web & Mobile</a></li>
+                <li><a href="#services" className="text-gray-300 hover:text-white">Services Cloud</a></li>
               </ul>
             </div>
           </div>
@@ -49,12 +49,12 @@ export default function Footer() {
               <a href="mailto:contact@binaryblack.com" className="flex items-center gap-3">
                 <Mail size={16} className="text-gray-300" />
                 <span className="text-gray-400 text-xs font-semibold">Email</span>
-                <span>contact@binaryblack.com</span>
+                <span>contact@binaryblack.tn</span>
               </a>
-              <a href="tel:+21612345678" className="flex items-center gap-3">
+              <a href="tel:+21699180650" className="flex items-center gap-3">
                 <Phone size={16} className="text-gray-300" />
                 <span className="text-gray-400 text-xs font-semibold">Téléphone</span>
-                <span>+216 12 345 678</span>
+                <span>+216 99 180 650</span>
               </a>
               <div className="flex items-center gap-3">
                 <MapPin size={16} className="text-gray-300" />
@@ -70,8 +70,8 @@ export default function Footer() {
           <div className="flex items-center justify-between text-xs text-gray-500">
             <span>© 2026 BinaryBlack. Tous droits réservés.</span>
             <div className="flex gap-4">
-              <a href="#" className="hover:text-white">Politique de confidentialité</a>
-              <a href="#" className="hover:text-white">Conditions d'utilisation</a>
+              <a href="/privacy" className="hover:text-white">Politique de confidentialité</a>
+              <a href="/terms" className="hover:text-white">Conditions d'utilisation</a>
             </div>
           </div>
         </div>
