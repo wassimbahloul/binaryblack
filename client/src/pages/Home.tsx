@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroBanner from "@/components/HeroBanner";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   const [openCategories, setOpenCategories] = useState<Set<number>>(new Set());
@@ -18,15 +19,33 @@ export default function Home() {
       return newSet;
     });
   };
+  function Card({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="card"
+      className={cn(
+        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
+
+  
   const techs = [
     "Python", "Java", "JavaScript", "C#", "PHP", "Angular",
     "React", ".NET", "Node.js", "Express.js", "Spring Boot", "Flask",
     "FastAPI", "Vue.js", "Laravel", "MySQL", "MongoDB", "SQL Server",
     "TensorFlow", "Keras", "PyTorch", "XGBoost", "Docker", "Git"
   ];
+  
   return (
     <div className="min-h-screen bg-white">
       <Header />
+
+      {/* no overlay: mini services navigate to full pages */}
 
       {/* Hero Banner with Owner */}
       <HeroBanner />
@@ -61,7 +80,7 @@ export default function Home() {
               <div className="text-center">
                 <div className="image-card home-image">
                   <img
-                    src="/surveillance.png"
+                    src="/logo11.png"
                     alt="Web & Mobile"
                     className="w-full"
                   />
@@ -156,10 +175,10 @@ export default function Home() {
                 <div className={`services-stack ${openCategories.has(1) ? 'services-stack-open' : 'services-stack-closed'}`}>
                   <div className="flex flex-col gap-3 mt-2">
                   {[
-                    { icon: Smartphone, title: "Plateformes Web", desc: "Applications réactives", href: "/service/web-mobile" },
-                    { icon: Smartphone, title: "Mobileapplications", desc: "iOS & Android natifs", href: "/service/web-mobile" },
-                    { icon: Smartphone, title: "UI/UX Design", desc: "Design UI/UX", href: "/service/web-mobile" },
-                    { icon: Smartphone, title: "Intégration API", desc: "Intégration API", href: "/service/web-mobile" }
+                    { key: "plateformes-web", icon: Smartphone, title: "Plateformes Web", desc: "Applications réactives", href: "/service/plateformes-web" },
+                    { key: "mobile-applications", icon: Smartphone, title: "Mobile Applications", desc: "iOS & Android natifs", href: "/service/mobile-applications" },
+                    { key: "ui-ux-design", icon: Smartphone, title: "UI/UX Design", desc: "Design UI/UX", href: "/service/ui-ux-design" },
+                    { key: "integration-api", icon: Smartphone, title: "Intégration API", desc: "Intégration API", href: "/service/integration-api" }
                   ].map((srv, i) => {
                     const Icon = srv.icon;
                     return (
@@ -204,10 +223,10 @@ export default function Home() {
                 <div className={`services-stack ${openCategories.has(2) ? 'services-stack-open' : 'services-stack-closed'}`}>
                   <div className="flex flex-col gap-3 mt-2">
                   {[
-                    { icon: Cloud, title: "IaaS & Infrastructure", desc: "Infrastructure élastique", href: "/service/cloud" },
-                    { icon: Cloud, title: "Platform as a Service", desc: "PaaS managé", href: "/service/cloud" },
-                    { icon: Cloud, title: "Managed Databases", desc: "Bases haute disponibilité", href: "/service/cloud" },
-                    { icon: Cloud, title: "Support & Monitoring", desc: "Supervision 24/7", href: "/service/cloud" }
+                    { key: "iaas-infrastructure", icon: Cloud, title: "IaaS & Infrastructure", desc: "Infrastructure élastique", href: "/service/iaas-infrastructure" },
+                    { key: "platform-service", icon: Cloud, title: "Platform as a Service", desc: "PaaS managé", href: "/service/platform-service" },
+                    { key: "managed-databases", icon: Cloud, title: "Managed Databases", desc: "Bases haute disponibilité", href: "/service/managed-databases" },
+                    { key: "support-monitoring", icon: Cloud, title: "Support & Monitoring", desc: "Supervision 24/7", href: "/service/support-monitoring" }
                   ].map((srv, i) => {
                     const Icon = srv.icon;
                     return (
@@ -295,6 +314,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            
           </div>
         </div>
       </section>
@@ -330,6 +350,18 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+              {[
+                { label: "Clients satisfaits", value: "10+" },
+                { label: "Projets réussis", value: "15+" },
+                { label: "Années d'expérience", value: "3+" },
+              ].map((stat, idx) => (
+                <div key={idx} className="stat-card">
+                  <div className="stat-value">{stat.value}</div>
+                  <div className="stat-label">{stat.label}</div>
+                </div>
+              ))}
+            </div>
         </div>
       </section>
 
