@@ -19,6 +19,8 @@ import ServiceIaaSInfrastructure from "./pages/ServiceIaaSInfrastructure";
 import ServicePlatformAsAService from "./pages/ServicePlatformAsAService";
 import ServiceManagedDatabases from "./pages/ServiceManagedDatabases";
 import ServiceSupportMonitoring from "./pages/ServiceSupportMonitoring";
+import ServiceChatbot from "./pages/ServiceChatbot";
+import ServiceIaAutomation from "./pages/ServiceIaAutomation";
 
 
 function Router() {
@@ -35,6 +37,8 @@ function Router() {
       <Route path={"/service/mobile-applications"} component={ServiceMobileApplications} />
       <Route path={"/service/ui-ux-design"} component={ServiceUiUxDesign} />
       <Route path={"/service/integration-api"} component={ServiceIntegrationApi} />
+      <Route path={"/service/chatbot"} component={ServiceChatbot} />
+      <Route path={"/service/ia-automation"} component={ServiceIaAutomation} />
       <Route path={"/service/iaas-infrastructure"} component={ServiceIaaSInfrastructure} />
       <Route path={"/service/platform-service"} component={ServicePlatformAsAService} />
       <Route path={"/service/managed-databases"} component={ServiceManagedDatabases} />

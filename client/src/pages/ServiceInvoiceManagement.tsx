@@ -55,7 +55,7 @@ export default function ServiceInvoiceManagement() {
               <div className="text-center">
                 <div className="image-card">
                   <img
-                    src="/invoice.png"
+                    src="/facture.png"
                     alt="Gestion de Factures"
                     className="w-full"
                   />
@@ -120,7 +120,6 @@ export default function ServiceInvoiceManagement() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               "Entreprises de services",
-              "Distributeurs",
               "Agences de voyage",
               "Cabinets d'expertise comptable",
               "PME et ETI"

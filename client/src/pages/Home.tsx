@@ -1,4 +1,4 @@
-import { ArrowRight, Zap, Award, Repeat, Factory, Building2, GraduationCap, BookOpen, Brain, BarChart3, Shield, FileCheck, Smartphone, Cloud, ChevronDown } from "lucide-react";
+import { ArrowRight, Zap, Award, Repeat, Factory, Building2, GraduationCap, BookOpen, Brain, BarChart3, Shield, FileCheck, Smartphone, Cloud, ChevronDown, Icon, MessageCircle, Cpu } from "lucide-react";
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -80,7 +80,7 @@ export default function Home() {
               <div className="text-center">
                 <div className="image-card home-image">
                   <img
-                    src="/logo11.png"
+                    src="/surveillance.png"
                     alt="Web & Mobile"
                     className="w-full"
                   />
@@ -130,7 +130,6 @@ export default function Home() {
                       { icon: BarChart3, title: "Présence & Absence", desc: "Suivi de présence automatisé", href: "/service/presence-absence" },
                       { icon: Shield, title: "Performance & Sécurité", desc: "Analyse comportementale", href: "/service/performance-security" },
                       { icon: Shield, title: "Sécurité Équipements", desc: "Contrôle EPI", href: "/service/safety-verification" },
-                      { icon: FileCheck, title: "Gestion Factures", desc: "OCR & extraction", href: "/service/invoice-management" }
                   ].map((srv, i) => {
                     const Icon = srv.icon;
                     return (
@@ -177,7 +176,6 @@ export default function Home() {
                   {[
                     { key: "plateformes-web", icon: Smartphone, title: "Plateformes Web", desc: "Applications réactives", href: "/service/plateformes-web" },
                     { key: "mobile-applications", icon: Smartphone, title: "Mobile Applications", desc: "iOS & Android natifs", href: "/service/mobile-applications" },
-                    { key: "ui-ux-design", icon: Smartphone, title: "UI/UX Design", desc: "Design UI/UX", href: "/service/ui-ux-design" },
                     { key: "integration-api", icon: Smartphone, title: "Intégration API", desc: "Intégration API", href: "/service/integration-api" }
                   ].map((srv, i) => {
                     const Icon = srv.icon;
@@ -212,7 +210,7 @@ export default function Home() {
                       <Cloud size={28} strokeWidth={1.5} />
                     </div>
                     <div>
-                      <h3 className="category-title">Services Cloud</h3>
+                      <h3 className="category-title">Inteligence Artificielle</h3>
                       <p className="category-subtitle">Infrastructure scalable</p>
                     </div>
                   </div>
@@ -223,10 +221,9 @@ export default function Home() {
                 <div className={`services-stack ${openCategories.has(2) ? 'services-stack-open' : 'services-stack-closed'}`}>
                   <div className="flex flex-col gap-3 mt-2">
                   {[
-                    { key: "iaas-infrastructure", icon: Cloud, title: "IaaS & Infrastructure", desc: "Infrastructure élastique", href: "/service/iaas-infrastructure" },
-                    { key: "platform-service", icon: Cloud, title: "Platform as a Service", desc: "PaaS managé", href: "/service/platform-service" },
-                    { key: "managed-databases", icon: Cloud, title: "Managed Databases", desc: "Bases haute disponibilité", href: "/service/managed-databases" },
-                    { key: "support-monitoring", icon: Cloud, title: "Support & Monitoring", desc: "Supervision 24/7", href: "/service/support-monitoring" }
+                      { icon: FileCheck, title: "Facturation automatisé", desc: "OCR, validation et intégration comptable", href: "/service/invoice-management" },
+                      { icon: MessageCircle, title: "Chat-Bot", desc: "assistants conversationnels", href: "/service/chatbot" },
+                      { icon: Cpu, title: "Automatisation par IA", desc: "Automatisation intelligente", href: "/service/ia-automation" },
                   ].map((srv, i) => {
                     const Icon = srv.icon;
                     return (
